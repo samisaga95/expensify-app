@@ -6,8 +6,22 @@ console.log("App.js is running!");
 
 var timepass = {
   title: "FuckOff",
-  subtitle: "I am kidding I didn't mean it"
+  subtitle: "I am kidding I didn't mean it",
+  options: ["One", "Two"]
 };
+
+function optionsExist(optionsArray) {
+  if (optionsArray.length > 0) return React.createElement(
+    "p",
+    null,
+    "Here are you options: ",
+    optionsArray
+  );else return React.createElement(
+    "p",
+    null,
+    "There arer no options."
+  );
+}
 
 var template = React.createElement(
   "div",
@@ -17,11 +31,14 @@ var template = React.createElement(
     null,
     timepass.title
   ),
-  React.createElement(
+  timepass.subtitle && React.createElement(
     "p",
     null,
-    timepass.subtitle
-  )
+    " ",
+    timepass.subtitle,
+    " "
+  ),
+  optionsExist(timepass.options)
 );
 var appRoot = document.getElementById("app");
 
