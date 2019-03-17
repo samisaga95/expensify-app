@@ -1,0 +1,14 @@
+# needs to be execcuted in the main folder directory to start the server
+live-server public
+
+# app.js in src folder will have the jsx while app.js in the scripts folder will contain in the auto compiled code from babel
+# so src/app.js gets compile to scripts/app.js which will be displayed in index.html
+# command to do so is 
+babel src/app.js --out-file= public/scripts/app.js --presets= env,react --watch
+
+# react components nned to call render() function and each class should start with uppercase to 
+# diffrentiate between basic html tags and react components.
+
+# form submits are treated as events so you pass an event to the called function and then you get the values by
+# checking the values of elements of the target of the event.
+

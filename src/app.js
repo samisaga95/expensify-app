@@ -1,26 +1,30 @@
-console.log("App.js is running!");
+import React from "react";
+import ReactDOM from "react-dom";
+import configureStore from "./store/ConfigureStore";
+import "normalize.css/normalize.css";
+import "./Styles/styles.scss";
+import AppRouter from "./routers/AppRouter";
+import { addExpense } from "./actions/expenses";
+import { editTextFilter } from "./actions/filter";
+import getVisibleExpenses from "./selectors/expenses";
+import { Provider } from "react-redux";
 
-// JSX - JavaScript XML
+const store = configureStore();
 
-var timepass = {
-  title: "FuckOff",
-  subtitle: "I am kidding I didn't mean it",
-  options: ["One", "Two"]
-};
+store.dispatch(addExpense({ description: "Water bill", amount: 10000 }));
+store.dispatch(addExpense({ description: "Gas bill", createdAt: 1000 }));
+store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 
-function optionsExist(optionsArray) {
-  if (optionsArray.length > 0)
-    return <p>Here are you options: {optionsArray}</p>;
-  else return <p>There arer no options.</p>;
-}
+console.log(store.getState());
 
-var template = (
-  <div>
-    <h1>{timepass.title}</h1>
-    {timepass.subtitle && <p> {timepass.subtitle} </p>}
-    {optionsExist(timepass.options)}
-  </div>
+const state = store.getState();
+const visibleExpenses = getVisibleExpenses(state.expenses, state.filter);
+console.log(visibleExpenses);
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
-var appRoot = document.getElementById("app");
 
-ReactDOM.render(template, app);
+ReactDOM.render(jsx, document.getElementById("app"));
