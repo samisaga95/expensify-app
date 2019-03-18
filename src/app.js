@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/ConfigureStore";
 import "normalize.css/normalize.css";
-import "./Styles/styles.scss";
+import "./styles/styles.scss";
 import AppRouter from "./routers/AppRouter";
 import { addExpense } from "./actions/expenses";
 import { editTextFilter } from "./actions/filter";
