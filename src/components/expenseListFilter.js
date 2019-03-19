@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 import {
-  setTextFilter,
+  editTextFilter,
   sortBy,
   setStartDate,
   setEndDate
@@ -26,7 +26,7 @@ class expenseListFilters extends React.Component {
           type="text"
           value={this.props.filter.text}
           onChange={e => {
-            this.props.dispatch(editTextFilter(e.target.value));
+            this.props.dispatch(editTextFilter({ text: e.target.value }));
           }}
         />
         <select
