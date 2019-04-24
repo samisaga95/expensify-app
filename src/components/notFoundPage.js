@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const notFoundPage = () => (
+const NotFoundPage = () => (
   <div>
-    404 - <NavLink to="/">Go Home</NavLink>
+    404 - <Link to="/">Go home</Link>
   </div>
 );
 
-export default notFoundPage;
+export default NotFoundPage;
