@@ -12,3 +12,6 @@ babel src/app.js --out-file= public/scripts/app.js --presets= env,react --watch
 # form submits are treated as events so you pass an event to the called function and then you get the values by
 # checking the values of elements of the target of the event.
 
+#when we do something a function from the action type is called. This function will return an action which will contain 
+#type and other useful information. This action is then dispatched. This dispatched action reaches the reducer. The
+# input for the reducer is the current state and action to do. It returns a modified version of the state.
