@@ -11,8 +11,13 @@ import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
 import "./firebase/firebase";
 import LoadingPage from "./components/LoadingPage";
-
+import ReactGA from "react-ga";
 import { firebase } from "./firebase/firebase";
+
+function initializeReactGA() {
+  ReactGA.initialize("UA-123791717-1");
+  ReactGA.pageview("/homepage");
+}
 
 const store = configureStore();
 
