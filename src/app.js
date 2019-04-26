@@ -14,8 +14,6 @@ import LoadingPage from "./components/LoadingPage";
 import ReactGA from "react-ga";
 import { firebase } from "./firebase/firebase";
 
-ReactGA.initialize("UA-139002404-2");
-
 const store = configureStore();
 
 const jsx = (
@@ -38,7 +36,9 @@ ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     console.log("logged in");
+    ReactGA.initialize("UA-139002404-2");
     ReactGA.pageview("/");
+
     store.dispatch(login(user.uid));
     store.dispatch(startSetExpenses()).then(() => {
       renderApp();
